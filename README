@@ -1,0 +1,108 @@
+
+   jmlm.py
+     _________________________________________________________________
+
+   Version: 1.3
+   Author:  Jeff Clement
+   Status:  Active Development
+
+   A really simple mailing list package written in Python and intended
+   for those who do not have a dedicated server. Simply take any POP3
+   account and turn it into a full featured mailing list.
+
+Project Description
+
+   JMLM is a very simple mailing list package that operates against an
+   existing POP3 account and doesn't need any sort of dedicated server or
+   access to the mail servers config. Simple:
+    1. Create a POP3 account for the mailing list: ie) list@myhost.com
+    2. Setup the mailing list by edit jmlm.py
+    3. Run jmlm.py periodically. It will retrieve the messages from the
+       POP account and process them.
+
+   This list will work against free POP3 accounts and you can even use
+   dialup accounts for the mailing list software assuming you don't mind
+   a little latency :)
+
+   The software is essentially complete now. It's very simple and
+   certainly won't handle large lists but it works and does the normal
+   things you expect.
+
+                                  1. Features
+
+     * BSD licensed. Have fun with it
+     * Can insert list name into subject
+     * Can append a footer onto messages
+     * Can limit size of messages posted to list
+     * Can bounce messages not from subscribers
+     * Can push list address into Reply-to field
+     * Easy to setup and use. Simply edit the script source and run it.
+       20sec mailing list.
+
+                               2. Configuration
+
+   Configuration is pretty simple. Just edit source code and modify the
+   variables near the top. You can even tweak the reply messages when the
+   server has something to say.
+
+   There are comments in the source code to give you a clue as to what
+   you are editing. Just remember to be careful. Strings are encludes in
+   quotes, boolean values are True or False. That sort of thing.
+
+   The messages MSG_... are just the message body of what gets sent on
+   server messages. You can tweak it if you like. The %(...)s stuff is
+   templating code for putting in things like the original message, the
+   time and date, their address, etc.
+
+   Bare minimum you will need to setup SMTP_SERVER, POP3_SERVER,
+   POP3_USER, POP3_PASS, LIST_NAME, LIST_ADDR, LIST_OWNER and LIST_KEY
+
+                                   3. Usage
+
+   Simply run the program with Python 2.2 or higher and it will tell you
+   what you need to know. Basically the -p option tells it to poll the
+   POP3 account for new messages and process them. The -l option lists
+   subscribers and -s and -u subscribe and unsubscribe users.
+
+   Have fun and let me know if you use it please.
+
+Requirements
+
+     * [1]Python 2.2+ (lower probably works but untested)
+
+License
+
+   This software is licensed under the BSD license. Please make sure you
+   have read and understood this license before downloading this
+   software!
+
+   Copyright (c) 2003, Jeffrey Clement All rights reserved.
+
+   Redistribution and use in source and binary forms, with or without
+   modification, are permitted provided that the following conditions are
+   met:
+     * Redistributions of source code must retain the above copyright
+       notice, this list of conditions and the following disclaimer.
+     * Redistributions in binary form must reproduce the above copyright
+       notice, this list of conditions and the following disclaimer in
+       the documentation and/or other materials provided with the
+       distribution.
+     * Neither the name of the Bluesine nor the names of its contributors
+       may be used to endorse or promote products derived from this
+       software without specific prior written permission.
+
+   THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+   "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+   LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+   A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+   OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+   SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+   LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+   DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+   THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+   (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+References
+
+   1. http://python.org/

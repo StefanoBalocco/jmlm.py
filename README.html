@@ -1,0 +1,74 @@
+
+<html>
+<head>
+ <title>jmlm.py</title>
+</head>
+<body>
+<b>jmlm.py</b><hr>
+
+<!-- ============================= -->
+<table>
+<tr><td><b>Version:</b></td><td>1.3</td></tr>
+<tr><td><b>Author:</b></td><td>Jeff Clement</td></tr>
+<tr><td><b>Status:</b></td><td>Active Development</td></tr>
+</table>
+<p>A really simple mailing list package written in Python and intended for those who do not have a dedicated server.  Simply take any POP3 account and turn it into a full featured mailing list.</p>
+<h2>Project Description</h2>
+
+<!-- Content generated with JDOC 2.0 -->
+<!-- Generated on: Fri Sep 12 14:28:29 2003 -->
+<P>JMLM is a very simple mailing list package that operates against an existing POP3 account and doesn't need any sort of dedicated server or access to the mail servers config.  Simple:</P>
+<OL>
+<LI>Create a POP3 account for the mailing list: ie) list@myhost.com
+<LI>Setup the mailing list by edit jmlm.py
+<LI>Run jmlm.py periodically.  It will retrieve the messages from the POP account and process them.
+</OL>
+<P>This list will work against free POP3 accounts and you can even use dialup accounts for the mailing list software assuming you don't mind a little latency :)</P>
+<P>The software is essentially complete now.  It's very simple and certainly won't handle large lists but it works and does the normal things you expect.      </P>
+<H1 class="jdocHeader"><a name="sect_1.">1. Features</a></H1>
+<UL>
+<LI>BSD licensed.  Have fun with it
+<LI>Can insert list name into subject
+<LI>Can append a footer onto messages
+<LI>Can limit size of messages posted to list
+<LI>Can bounce messages not from subscribers
+<LI>Can push list address into Reply-to field
+<LI>Easy to setup and use.  Simply edit the script source and run it.  20sec mailing list.
+</UL>
+<H1 class="jdocHeader"><a name="sect_2.">2. Configuration</a></H1>
+<P>Configuration is pretty simple.  Just edit source code and modify the variables near the top.  You can even tweak the reply messages when the server has something to say.</P>
+<P>There are comments in the source code to give you a clue as to what you are editing.  Just remember to be careful.  Strings are encludes in quotes, boolean values are True or False.  That sort of thing. </P>
+<P>The messages MSG_... are just the message body of what gets sent on server messages.  You can tweak it if you like.   The %(...)s stuff is templating code for putting in things like the original message, the time and date, their address, etc.</P>
+<P>Bare minimum you will need to setup SMTP_SERVER, POP3_SERVER, POP3_USER, POP3_PASS, LIST_NAME, LIST_ADDR, LIST_OWNER and LIST_KEY</P>
+<H1 class="jdocHeader"><a name="sect_3.">3. Usage</a></H1>
+<P>Simply run the program with Python 2.2 or higher and it will tell you what you need to know.  Basically the -p option tells it to poll the POP3 account for new messages and process them.  The -l option lists subscribers and -s and -u subscribe and unsubscribe users.</P>
+<P>Have fun and let me know if you use it please.</P>
+
+<h2>Requirements</h2>
+<UL>
+ <LI><a href="http://python.org">Python 2.2+ (lower probably works but untested)</a>
+</UL>
+<h2>License</h2>
+<p><b>This software is licensed under the BSD license.  Please make sure you have read and understood this license before downloading this software!</b></p>
+
+<P>
+Copyright (c) 2003, Jeffrey Clement
+All rights reserved.
+</P>
+
+<P>
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+</P>
+
+<UL>
+<LI> Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+<LI> Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+<LI> Neither the name of the Bluesine nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+</UL>
+
+<P>THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</P>
+
+
+</body>
+</html>
+    
