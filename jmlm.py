@@ -21,6 +21,7 @@
 #
 # Revision 1.3.1	2015/03/02		stefano
 # Changed indentation, removed subversion crap
+# Added SMTP starttls and authentication
 #
 # Revision 1.3		2003/09/12 20:27:55	jsc
 # Bug fixes
@@ -62,14 +63,18 @@
 #
 ##########################################################################
 
+# SMTP & POP3 credential
+MAIL_USER		= 'list@jclement.ca'
+MAIL_PASS		= 'a'
+
 # SMTP Server for outgoing mail.  This server must relay messages to
 # all subscribed addresses
-SMTP_SERVER = 'mail.bluesine.com'
+SMTP_SERVER		= 'mail.bluesine.com'
+SMTP_REQUIRE_AUTH	= False
+SMTP_REQUIRE_TLS	= False
 
-# POP3 Server and credentials for the list
+# POP3 Server for the list
 POP3_SERVER = 'mail.bluesine.com'
-POP3_USER	= 'list@jclement.ca'
-POP3_PASS	= 'a'
 
 # List Name - reported in subject of list messages
 LIST_NAME	= 'JMLM-TEST'
@@ -249,6 +254,12 @@ from StringIO import StringIO
 
 def sendMessage(to, message):
 	server = smtplib.SMTP(SMTP_SERVER)
+	server.ehlo()
+	if SMTP_REQUIRE_TLS:
+		server.starttls()
+		server.ehlo()
+	if SMTP_REQUIRE_AUTH:
+		server.login(MAIL_USER,MAIL_PASS)
 	server.sendmail(LIST_ADDR, to, message)
 	
 def sendDaemonMessage(to, subject, message, prev_message=None):
@@ -295,7 +306,7 @@ def err(m):
 ##########################################################################
 
 def validEmail(emailAddr):
-	pattern = re.compile('^([_a-zA-Z0-9-]\.*){1,255}@([_a-zA-Z0-9-]\.*){1,255}\.([a-zA-Z]){2,3}$')
+	pattern = re.compile('^([_a-zA-Z0-9-+]\.*){1,255}@([_a-zA-Z0-9-]\.*){1,255}\.([a-zA-Z]){2,3}$')
 	return pattern.match(emailAddr) != None
 
 ##########################################################################
@@ -451,8 +462,8 @@ def processMailinglist():
 	# log into the POP3 server
 	popserver = poplib.POP3(POP3_SERVER)
 	try:
-		assert(popserver.user(POP3_USER) == '+OK ')
-		assert(popserver.pass_(POP3_PASS) == '+OK ')
+		assert(popserver.user(MAIL_USER) == '+OK ')
+		assert(popserver.pass_(MAIL_PASS) == '+OK ')
 	except:
 		err("Unable ot login to POP3 server.  Please verify username and password")
 	print " - connected to POP3 server"
