@@ -19,6 +19,20 @@
 #
 # -------------------------------------------------------------------
 #
+# Revision 1.3.1	2015/03/02		stefano
+# Changed indentation, removed subversion crap
+#
+# Revision 1.3		2003/09/12 20:27:55	jsc
+# Bug fixes
+#
+# Revision 1.2		2003/09/12 19:58:04	jsc
+# Mostly all working.  Now just need to bug fix.
+#
+# Revision 1.1.1.1	2003/09/11 21:04:43	jsc
+# Project Created
+#
+# -------------------------------------------------------------------
+#
 # Copyright (c) 2003, Jeffrey Clement All rights reserved. 
 #
 # Redistribution and use in source and binary forms, with or without
