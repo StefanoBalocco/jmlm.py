@@ -1,11 +1,12 @@
 #!/usr/bin/env python
 ######################################################################
 #
-#	Module:	 jmlm.py (Jeff's Mailing List Manager)
-#	Version: $Id: jmlm.py,v 1.3 2003/09/12 20:27:55 jsc Exp $
-#	Author:	 Jeffrey Clement <jclement@bluesine.com>
-#	Targets: Win32, Unix
-#	Web:	 http://jclement.ca/
+#	Module		jmlm.py (Jeff's Mailing List Manager)
+#	Version		v1.3.1
+#	Author		Jeffrey Clement <jclement@bluesine.com>
+#	Patches:	Stefano Balocco <stefano.balocco@gmail.com>
+#	Targets		Win32, Unix
+#	Web		https://github.com/StefanoBalocco/jmlm.py
 #
 # A quick and dirty little mailing list package intended to be run
 # by someone who doesn't have a dedicated mail server.	Can easily 
@@ -15,18 +16,6 @@
 # This is not an appropriate way to run a high traffic list but if 
 # you just want a small low traffic list and don't want to pay for it
 # you can use jmlm and a dedicated POP3 account for it.
-#
-# -------------------------------------------------------------------
-#
-# $Log: jmlm.py,v $
-# Revision 1.3	2003/09/12 20:27:55	 jsc
-# Bug fixes
-#
-# Revision 1.2	2003/09/12 19:58:04	 jsc
-# Mostly all working.  Now just need to bug fix.
-#
-# Revision 1.1.1.1	2003/09/11 21:04:43	 jsc
-# Project Created
 #
 # -------------------------------------------------------------------
 #
